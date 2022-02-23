@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GrpcGreeter.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,7 +36,7 @@ namespace GrpcGreeter
                                     new TraceContextPropagator()
                 }
             ));
-            ResourceBuilder resourceBuilder = ResourceBuilder.CreateDefault().AddService("ovidiu-hello");
+            ResourceBuilder resourceBuilder = ResourceBuilder.CreateDefault().AddService("grpc-server");
             builder.SetResourceBuilder(resourceBuilder)
                 .AddSource("activitySourceName")
                 .SetSampler(new AlwaysOnSampler())
